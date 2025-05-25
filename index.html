@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - The Ultimate Campus Networking App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="loader-circle" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-bullhorn"></i></span>
+                <span class="logo-text">CampusBuzz</span>
+            </a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#team" class="nav-link">Team</a></li>
+                    <li><a href="#clubs" class="nav-link">Clubs</a></li>
+                    <li><a href="interns.html" class="nav-link">Interns</a></li>
+                    <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-nav-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="header-btn">
+                <a href="#download" class="btn btn-outline">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animated-text">
+                    <span class="text-gradient">Campus Life</span> Reimagined
+                </h1>
+                <p class="hero-description">
+                    CampusBuzz is the digital hub that brings students, events, and campus resources together in one seamless platform.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://play.google.com/store/apps/details?id=site.campusbuzz.app" class="btn btn-primary" target="_blank">
+
+                        <i class="fab fa-google-play"></i>
+                        Get the App
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        Explore Features
+                    </a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <span class="metric-value">50+</span>
+                        <span class="metric-label">Campuses</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">100K+</span>
+                        <span class="metric-label">Students</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">4.8</span>
+                        <span class="metric-label">App Rating</span>
+                    </div>
+                </div>
+                <div class="founders-note">
+                    <span class="founders-label">Founded by</span>
+                    <span class="founders-name">Alex Johnson & Sarah Williams</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-container">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="mobile img.jpg" alt="CampusBuzz App">
+                        </div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-element fe-1">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Events</span>
+                        </div>
+                        <div class="floating-element fe-2">
+                            <i class="fas fa-users"></i>
+                            <span>Connect</span>
+                        </div>
+                        <div class="floating-element fe-3">
+                            <i class="fas fa-bell"></i>
+                            <span>Updates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">App Features</span>
+                <h2 class="section-title">Everything You Need on Campus</h2>
+                <p class="section-subtitle">Discover what makes CampusBuzz essential for every student's daily life</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Discovery</h3>
+                    <p>Find campus events, clubs, and activities tailored to your interests with smart recommendations.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Smart Networking</h3>
+                    <p>Connect with classmates, form study groups, and build your academic network with ease.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Real-time Notifications</h3>
+                    <p>Get important announcements from administration and faculty directly to your device.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Campus Navigator</h3>
+                    <p>Interactive maps with real-time navigation to help you find classrooms and facilities quickly.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Resource Sharing</h3>
+                    <p>Share notes, study materials, and resources with peers to maximize your academic success.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3>Community Forums</h3>
+                    <p>Join discussions, ask questions, and participate in topic-specific campus forums.</p>
+                </div>
+            </div>
+
+            <div class="feature-showcase">
+                <div class="showcase-content">
+                    <h3>One App, Complete Campus Experience</h3>
+                    <p>CampusBuzz integrates all aspects of student life in one intuitive interface, eliminating the need for multiple apps and services.</p>
+                    
+                    <ul class="showcase-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized event recommendations</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Simplified course management</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Seamless peer collaboration</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Integrated campus services</span>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="showcase-image">
+                    <img src="https://via.placeholder.com/500x350" alt="App Screenshot">
+                    <div class="experience-badge">
+                        <span>Seamless Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://via.placeholder.com/500x500" alt="About CampusBuzz">
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-value">2023</span>
+                            <span class="stat-label">Founded</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-tag">Our Story</span>
+                    <h2 class="section-title">Revolutionizing Campus Connectivity</h2>
+                    <p>CampusBuzz began with a simple observation: campus communication was fragmented across multiple platforms, making it difficult for students to stay informed and connected.</p>
+
+                    <p>Founded by a team of college students in 2023, we set out to create a unified platform that brings together every aspect of campus life—from events and organizations to resources and services—in one intuitive application.</p>
+
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Our Mission</h4>
+                                <p>To enhance campus engagement by providing a seamless communication platform that connects every member of the campus community.</p>
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Our Vision</h4>
+                                <p>To become the essential digital hub for campus life at educational institutions worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Meet the Innovators</h2>
+                <p class="section-subtitle">The passionate minds behind CampusBuzz working to transform campus connectivity</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="Boda Kalyan Singh.jpg" alt="Founder & CEO">
+                    </div>
+                    <div class="member-info">
+                        <h3>KALYAN SINGH</h3>
+                        <p class="member-role">Founder & CEO</p>
+                        <p class="member-bio">Visionary leader driving innovation and growth to revolutionize campus communication.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="Goutham Karamtoth .jpg" alt="Co-Founder">
+                    </div>
+                    <div class="member-info">
+                        <h3>GAUTAM</h3>
+                        <p class="member-role">Co-Founder & CTO</p>
+                        <p class="member-bio">Technical expert building scalable and secure platforms to connect students seamlessly.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="Hemanth Guguloth.jpg" alt="Co-Founder">
+                    </div>
+                    <div class="member-info">
+                        <h3>HEMANTH</h3>
+                        <p class="member-role">Co-Founder & COO</p>
+                        <p class="member-bio">Operations strategist ensuring smooth execution of company goals and daily functions.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="Vankudoth Pavan.jpeg" alt="Chief Marketing Officer(CMO)">
+                    </div>
+                    <div class="member-info">
+                        <h3>VANKUDOTH PAVAN</h3>
+                        <p class="member-role">Chief Marketing Officer</p>
+                        <p class="member-bio">Leads marketing efforts to build brand awareness and engage campus communities.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+                    <div class="member-image">
+                        <img src="ANITHA RAMAVATH .jpg" alt="PR Manager">
+                    </div>
+                    <div class="member-info">
+                        <h3>ANITHA</h3>
+                        <p class="member-role">PR Manager</p>
+                        <p class="member-bio">Building strong media relationships and shaping CampusBuzz public image.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="500">
+                    <div class="member-image">
+                        <img src="Sapavath Sravani .jpg" alt="PR Manager">
+                    </div>
+                    <div class="member-info">
+                        <h3>SRAVANI</h3>
+                        <p class="member-role">PR Manager</p>
+                        <p class="member-bio">Supports media outreach and crafts strategic communications to enhance CampusBuzz public presence.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-cta">
+                <p>Interested in joining our team?</p>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+
+        </div>
+    </section>
+    <!-- Clubs Section -->
+     
+    <section id="clubs" class="clubs-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Campus Clubs</span>
+                <h2 class="section-title">Join a Club, Make a Difference</h2>
+                <p class="section-subtitle">Explore clubs and organizations that match your interests and passions</p>
+            </div>
+
+            <div class="clubs-grid">
+                <div class="club-card" data-aos="fade-up">
+                    <div class="club-image">
+                        <img src="AI, ML" alt="AI Club">
+                    </div>
+                    <div class="club-info">
+                        <h3>AI & Machine Learning</h3>
+                        <p>Build intelligent apps, models, and explore cutting-edge AI technologies.</p>
+                        <a href="#" class="btn btn-secondary">Join Now</a>
+                    </div>
+                </div>
+                <div class="club-card" data-aos="fade-up">
+                    <div class="club-image">
+                        <img src="cybersecurity.jpg" alt="Cybersecurity Club">
+                    </div>
+                    <div class="club-info">
+                        <h3>Cybersecurity Club</h3>
+                        <p>Defend against threats, learn ethical hacking, and secure digital systems.</p>
+                        <a href="#" class="btn btn-secondary">Join Now</a>
+                    </div>
+                </div>
+                <div class="club-card" data-aos="fade-up">
+                    <div class="club-image">
+                        <img src="data science" alt="Data Science Club">
+                    </div>
+                    <div class="club-info">
+                        <h3>Data Science Club</h3>
+                        <p>Analyze data, work on projects, and solve real-world challenges using data.</p>
+                        <a href="#" class="btn btn-secondary">Join Now</a>
+                    </div>
+                </div>
+
+                <div class="clubs-cta">
+                    <p>Got ideas for new clubs? We’d love to hear from you!</p>
+                    <a href="#contact" class="btn btn-primary">Reach Out</a>
+                </div>
+
+            </div>
+        </div>    
+        
+</section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Coming Soon</span>
+                <h2 class="section-title">Our Roadmap</h2>
+                <p class="section-subtitle">Exciting new features on the horizon to enhance your campus experience</p>
+            </div>
+
+            <div class="roadmap">
+                <div class="roadmap-item" data-aos="fade-up">
+                    <div class="roadmap-date">Q2 2025</div>
+                    <div class="roadmap-content">
+                        <h3>AI-Powered Study Assistant</h3>
+                        <p>Personalized study recommendations and resources based on your course load and learning style.</p>
+                        <div class="roadmap-status">In Development</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="roadmap-date">Q3 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Digital Student ID</h3>
+                        <p>Secure digital ID for campus access, attendance, library, and other campus services.</p>
+                        <div class="roadmap-status">Planning Phase</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="roadmap-date">Q4 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Integrated Event Ticketing</h3>
+                        <p>Seamless event registration and QR code-based check-in for campus events.</p>
+                        <div class="roadmap-status">Research Phase</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="roadmap-date">Q1 2026</div>
+                    <div class="roadmap-content">
+                        <h3>Campus Marketplace</h3>
+                        <p>Platform for students to buy, sell, and exchange textbooks, dorm essentials, and more.</p>
+                        <div class="roadmap-status">Concept Phase</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-note">
+                <div class="note-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="note-content">
+                    <h4>Have a Feature Idea?</h4>
+                    <p>We're constantly looking to improve CampusBuzz based on student needs. If you have suggestions for new features, we'd love to hear from you!</p>
+                    <a href="#contact" class="btn btn-text">Share Your Idea <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Questions, feedback, or partnership inquiries? We'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <div class="item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Visit Us</h4>
+                                <p>123 Innovation Drive<br>Tech Park, CA 94043</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Email Us</h4>
+                                <p>hello@campusbuzz.com<br>support@campusbuzz.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="item-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567<br>Mon-Fri, 9AM-5PM PST</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="item-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="item-content">
+                                <h4>Follow Us</h4>
+                                <div class="contact-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form id="contactForm" class="contact-form" action="process_contact.php" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="download-content">
+                <h2>Get CampusBuzz Today</h2>
+                <p>Join thousands of students who are already enhancing their campus experience with CampusBuzz.</p>
+                <div class="download-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=site.campusbuzz.app" target="_blank" class="store-button">
+                        <i class="fab fa-google-play"></i>
+                        <div class="button-text">
+                            <span>GET IT ON</span>
+                            <span class="store-name">Google Play</span>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>CampusBuzz</span>
+                    </a>
+                    <p>The ultimate campus networking app that brings students, faculty, and events together in one place.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates and features.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 CampusBuzz. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

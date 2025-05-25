@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - Our Interns</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to the interns page */
+        .interns-hero {
+            min-height: 40vh;
+            background: var(--gradient-dark);
+            padding: 15rem 0 5rem;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .interns-hero h1 {
+            font-size: 4.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .interns-hero p {
+            max-width: 70rem;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.8rem;
+        }
+
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background-color: var(--light-gray);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-full);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--navy-blue);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--blue-green);
+            color: var(--navy-blue);
+        }
+
+        .interns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .intern-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+
+        .intern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .intern-tag {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: var(--blue-green);
+            color: var(--navy-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-full);
+            z-index: 1;
+        }
+
+        .intern-image {
+            height: 25rem;
+            overflow: hidden;
+        }
+
+        .intern-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+
+        .intern-card:hover .intern-image img {
+            transform: scale(1.05);
+        }
+
+        .intern-info {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .intern-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .intern-role {
+            color: var(--blue-grotto);
+            font-weight: 600;
+        }
+
+        .intern-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .intern-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--mid-gray);
+            font-size: 1.4rem;
+        }
+
+        .intern-detail i {
+            color: var(--blue-green);
+        }
+
+        .intern-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--navy-blue);
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+        }
+
+        .intern-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .intern-social a {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            color: var(--navy-blue);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+
+        .intern-social a:hover {
+            background-color: var(--blue-green);
+            transform: translateY(-3px);
+        }
+
+        .intern-bio {
+            color: var(--mid-gray);
+            font-size: 1.4rem;
+            line-height: 1.6;
+        }
+
+        .interns-cta {
+            text-align: center;
+            background-color: var(--light-gray);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            margin-top: 5rem;
+        }
+
+        .interns-cta h3 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .interns-cta p {
+            max-width: 60rem;
+            margin: 0 auto 3rem;
+            color: var(--mid-gray);
+            font-size: 1.6rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 5rem;
+        }
+
+        .page-link {
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            color: var(--navy-blue);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+
+        .page-link:hover, .page-link.active {
+            background-color: var(--blue-green);
+        }
+
+        @media (max-width: 768px) {
+            .interns-hero {
+                padding: 12rem 0 5rem;
+            }
+            
+            .interns-hero h1 {
+                font-size: 3.6rem;
+            }
+            
+            .filter-controls {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 1rem 0;
+            }
+            
+            .filter-btn {
+                white-space: nowrap;
+            }
+            
+            .interns-cta {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-bullhorn"></i></span>
+                <span class="logo-text">CampusBuzz</span>
+            </a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#team" class="nav-link">Team</a></li>
+                    <li><a href="#" class="nav-link active">Interns</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-nav-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="header-btn">
+                <a href="index.html#download" class="btn btn-outline">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interns Hero Section -->
+    <section class="interns-hero">
+        <div class="container">
+            <h1>Meet Our <span class="text-gradient">Talented Interns</span></h1>
+            <p>The bright minds helping to shape the future of CampusBuzz with their innovative ideas and fresh perspectives.</p>
+        </div>
+    </section>
+
+    <!-- Interns Section -->
+    <section class="interns-section">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Departments</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="content">Content</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+            </div>
+
+            <!-- Interns Grid -->
+            <div class="interns-grid">
+                <!-- Intern Card 1 -->
+                <div class="intern-card" data-category="development">
+                    <div class="intern-tag">Development</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>Rajesh Kumar</h3>
+                            <p class="intern-role">Frontend Developer Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                MIT College
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Summer 2025
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
+                        <p class="intern-bio">
+                            Computer Science senior with a passion for creating intuitive user interfaces and seamless user experiences.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern Card 2 -->
+                <div class="intern-card" data-category="design">
+                    <div class="intern-tag">Design</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>Aisha Patel</h3>
+                            <p class="intern-role">UI/UX Design Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                School of Design
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Fall 2024
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">User Research</span>
+                        </div>
+                        <p class="intern-bio">
+                            Design major with a keen eye for aesthetics and a user-centered approach to problem-solving.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern Card 3 -->
+                <div class="intern-card" data-category="marketing">
+                    <div class="intern-tag">Marketing</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>Miguel Rodriguez</h3>
+                            <p class="intern-role">Digital Marketing Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                Business School
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Spring 2025
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">Social Media</span>
+                            <span class="skill-tag">SEO</span>
+                            <span class="skill-tag">Content Strategy</span>
+                            <span class="skill-tag">Analytics</span>
+                        </div>
+                        <p class="intern-bio">
+                            Marketing student specializing in digital strategies for tech startups and app promotion.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern Card 4 -->
+                <div class="intern-card" data-category="development">
+                    <div class="intern-tag">Development</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>Olivia Chen</h3>
+                            <p class="intern-role">Backend Developer Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                Tech Institute
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Summer 2025
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">API Design</span>
+                        </div>
+                        <p class="intern-bio">
+                            Computer Engineering junior focused on scalable backend architecture and efficient database design.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-stack-overflow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern Card 5 -->
+                <div class="intern-card" data-category="content">
+                    <div class="intern-tag">Content</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>David Johnson</h3>
+                            <p class="intern-role">Content Strategy Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                Media College
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Fall 2024
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">Copywriting</span>
+                            <span class="skill-tag">Content Planning</span>
+                            <span class="skill-tag">Editing</span>
+                            <span class="skill-tag">SEO Writing</span>
+                        </div>
+                        <p class="intern-bio">
+                            Journalism major with a focus on digital media and content creation for tech platforms.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-medium"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern Card 6 -->
+                <div class="intern-card" data-category="research">
+                    <div class="intern-tag">Research</div>
+                    <div class="intern-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Intern">
+                    </div>
+                    <div class="intern-info">
+                        <div>
+                            <h3>Priya Sharma</h3>
+                            <p class="intern-role">User Research Intern</p>
+                        </div>
+                        <div class="intern-details">
+                            <span class="intern-detail">
+                                <i class="fas fa-university"></i>
+                                Psychology Dept.
+                            </span>
+                            <span class="intern-detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                Spring 2025
+                            </span>
+                        </div>
+                        <div class="intern-skills">
+                            <span class="skill-tag">User Testing</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Surveys</span>
+                            <span class="skill-tag">Behavioral Analysis</span>
+                        </div>
+                        <p class="intern-bio">
+                            Psychology student specializing in digital user behavior and experience research methodologies.
+                        </p>
+                        <div class="intern-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="interns-cta">
+                <h3>Join Our Internship Program</h3>
+                <p>Are you passionate about technology and innovation? Apply to our internship program and be part of the team building the future of campus connectivity.</p>
+                <a href="index.html#contact" class="btn btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>CampusBuzz</span>
+                    </a>
+                    <p>The ultimate campus networking app that brings students, faculty, and events together in one place.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#team">Team</a></li>
+                        <li><a href="#">Interns</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates and features.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 CampusBuzz. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Filtering functionality for interns
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const internCards = document.querySelectorAll('.intern-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter intern cards
+                    internCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Pagination functionality (simplified for demo)
+            const pageLinks = document.querySelectorAll('.page-link');
+            
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all page links
+                    pageLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Here you would normally load the appropriate page content
+                    // For demo purposes, we're just toggling the active class
+                });
+            });
+        });
+    </script>
+</body>
+</html>
